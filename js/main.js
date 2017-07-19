@@ -31,20 +31,28 @@ function checkForMatch() {
   } else {
     alert("Sorry, try again.");
   }
-}
+};
 
-function flipCard(cardId){
+function flipCard(){
+  var cardId = this.getAttribute('data-id');
   console.log("User flipped " + cards[cardId].rank);
   cardsInPlay.push(cards[cardId].rank);
   console.log("Card image is " + cards[cardId].cardImage);
   console.log("Suit is " + cards[cardId].suit);
-
+  this.setAttribute("src",cards[cardId].cardImage);
   if(cardsInPlay.length === 2) {
     checkForMatch();
   }
-}
+};
 
-for (i = 0; i < 3; i++){
-  var boxElement;
-  boxElement.createElement('div');
-}
+function createBoard(){
+  for(var i = 0; i < cards.length; i++){
+    var cardElement = document.createElement('img');
+    cardElement.setAttribute('src', 'images/back.png');
+    cardElement.setAttribute('data-id', i);
+    cardElement.addEventListener('click', flipCard);
+    document.getElementById("game-board").appendChild(cardElement);
+  }
+};
+
+createBoard();
