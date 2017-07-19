@@ -43,3 +43,8 @@ function flipCard(cardId){
     checkForMatch();
   }
 }
+
+for (i = 0; i < 3; i++){
+  var boxElement;
+  boxElement.createElement('div');
+}
